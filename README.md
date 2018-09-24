@@ -1,7 +1,7 @@
 **Efficient Neural Network Robustness Certification with General Activation Functions**, 
 Huan Zhang\*,Tsui-Wei Weng\*, Pin-Yu Chen, Cho-Jui Hsieh, Luca Daniel (\* Equal Contribution)
 
-[Paper PDF](https://arxiv.org/abs/to_be_updated)
+[Paper PDF](http://web.cs.ucla.edu/~chohsieh/efficient-neural-network.pdf)
 
 In this work, we proposed a new algorithm, CROWN, for robustness verification
 of neural networks with general activation functions. We also improve the
