@@ -1,14 +1,11 @@
-**Efficient Neural Network Robustness Certification with General Activation Functions**, 
-Huan Zhang\*,Tsui-Wei Weng\*, Pin-Yu Chen, Cho-Jui Hsieh, Luca Daniel (\* Equal Contribution)
+About
+--------------------
+We proposed an new framework, **CROWN**, to **certify** robustness of neural networks with **general activation functions** including but not limited to ReLU, tanh, sigmoid, arctan, etc. **CROWN** is efficient and can deliver lower bounds of minimum adversarial distortions with guarantees (the so-called **certified lower bound** or **certified robustness**). **CROWN** also improves the quality (up to 28%) of robustness lower bound on ReLU networks comparing to existing state-of-the-art robustness certification algorithms e.g. [Fast-Lin](https://arxiv.org/pdf/1804.09699.pdf).
 
-[Paper PDF](http://web.cs.ucla.edu/~chohsieh/efficient-neural-network.pdf)
+Cite this work:
 
-In this work, we proposed a new algorithm, CROWN, for robustness verification
-of neural networks with general activation functions. We also improve the
-quality of robustness lower bound on ReLU network comparing to existing works.
-Our algorithm is efficient and can certify non-trivial lower bounds of minimum
-adversarial distortions, by bounding the general activation functions with
-appropriate linear functions and propagate through layers.
+Huan Zhang\*,Tsui-Wei Weng\*, Pin-Yu Chen, Cho-Jui Hsieh and Luca Daniel, "**Efficient Neural Network Robustness Certification with General Activation Functions**", NIPS 2018. (\* Equal Contribution)
+
 
 Prerequisites
 -----------------------
