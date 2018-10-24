@@ -1,11 +1,22 @@
 About
 --------------------
-We proposed an new framework, **CROWN**, to **certify** robustness of neural networks with **general activation functions** including but not limited to ReLU, tanh, sigmoid, arctan, etc. **CROWN** is efficient and can deliver lower bounds of minimum adversarial distortions with guarantees (the so-called **certified lower bound** or **certified robustness**). **CROWN** also improves the quality (up to 28%) of robustness lower bound on ReLU networks comparing to existing state-of-the-art robustness certification algorithms e.g. [Fast-Lin](https://arxiv.org/pdf/1804.09699.pdf).
+We proposed an new framework, **CROWN**, to **certify** robustness of neural networks with **general activation functions** including but not limited to ReLU, tanh, sigmoid, arctan, etc. **CROWN** is efficient and can deliver lower bounds of minimum adversarial distortions with guarantees (the so-called **certified lower bound** or **certified robustness**). **CROWN** also improves the quality (up to 28%) of robustness lower bound on ReLU networks comparing to existing state-of-the-art robustness certification algorithms e.g. [Fast-Lin](https://github.com/huanzhang12/CertifiedReLURobustness).
 
 Cite this work:
 
-Huan Zhang\*,Tsui-Wei Weng\*, Pin-Yu Chen, Cho-Jui Hsieh and Luca Daniel, "**Efficient Neural Network Robustness Certification with General Activation Functions**", NIPS 2018. (\* Equal Contribution)
+Huan Zhang\*, Tsui-Wei Weng\*, Pin-Yu Chen, Cho-Jui Hsieh and Luca Daniel, "**Efficient Neural Network Robustness Certification with General Activation Functions**", NIPS 2018. (\* Equal Contribution)
 
+```
+@inproceedings{zhang2018crown,
+  author = "Huan Zhang AND Tsui-Wei Weng AND Pin-Yu Chen AND Cho-Jui Hsieh AND Luca Daniel",
+  title = "Efficient Neural Network Robustness Certification with General Activation Functions",
+  booktitle = "Advances in Neural Information Processing Systems (NIPS)",
+  year = "2018",
+  month = "dec"
+}
+```
+
+The code is currently in draft status and is intended to reproduce the results in paper only. There are some unused code and unclear comments. We are still working on cleaning up the code and improving readability. You are welcome to create an issue or pull request to report any problems in our code.
 
 Prerequisites
 -----------------------
@@ -102,8 +113,3 @@ To enable multithreaded computing, changing the number `1` in `run.sh` to the nu
 ```
 NUMBA_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1
 ```
-
-The code is currently in draft status and there are some unused code and
-unclear comments. We are still working on cleaning up the code and improving readability.
-You are welcome to create an issue or pull request to report any issues with our code.
-
