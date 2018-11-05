@@ -4,7 +4,7 @@ We proposed an new framework, **CROWN**, to **certify** robustness of neural net
 
 Cite this work:
 
-Huan Zhang\*, Tsui-Wei Weng\*, Pin-Yu Chen, Cho-Jui Hsieh and Luca Daniel, "**Efficient Neural Network Robustness Certification with General Activation Functions**", NIPS 2018. (\* Equal Contribution)
+Huan Zhang\*, Tsui-Wei Weng\*, Pin-Yu Chen, Cho-Jui Hsieh and Luca Daniel, "[**Efficient Neural Network Robustness Certification with General Activation Functions**](http://arxiv.org/abs/1811.00866)", NIPS 2018. (\* Equal Contribution)
 
 ```
 @inproceedings{zhang2018crown,
