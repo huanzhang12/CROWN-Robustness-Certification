@@ -16,12 +16,6 @@ Huan Zhang\*, Tsui-Wei Weng\*, Pin-Yu Chen, Cho-Jui Hsieh and Luca Daniel, "[**E
 }
 ```
 
-**Update: It is recommended to use the new implementation of CROWN: https://github.com/huanzhang12/RecurJac-Jacobian-Bounds**. The new implementation has better readability, includes an unified interface to run all our algorithms, and also contains some bug fixes.
-
-The code in this repository will be not maintained and is intended to reproduce paper results only.
-
-~~The code is currently in draft status and is intended to reproduce the results in paper only. There are some unused code and unclear comments. We are still working on cleaning up the code and improving readability. You are welcome to create an issue or pull request to report any problems in our code.~~
-
 Prerequisites
 -----------------------
 
@@ -117,3 +111,8 @@ To enable multithreaded computing, changing the number `1` in `run.sh` to the nu
 ```
 NUMBA_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1
 ```
+
+**Update: An alternative version of CROWN: https://github.com/huanzhang12/RecurJac-Jacobian-Bounds**. 
+
+The code in this repository will be not maintained and is intended to reproduce paper results only.
+
