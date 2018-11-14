@@ -1,3 +1,5 @@
+**As requested by IBM, this repository is moved to https://github.com/IBM/CROWN-Robustness-Certification, but we aim to keep both repositories synced up.** The code is released under Apache License v2.
+
 About
 --------------------
 We proposed an new framework, **CROWN**, to **certify** robustness of neural networks with **general activation functions** including but not limited to ReLU, tanh, sigmoid, arctan, etc. **CROWN** is efficient and can deliver lower bounds of minimum adversarial distortions with guarantees (the so-called **certified lower bound** or **certified robustness**). **CROWN** also improves the quality (up to 28%) of robustness lower bound on ReLU networks comparing to existing state-of-the-art robustness certification algorithms e.g. [Fast-Lin](https://github.com/huanzhang12/CertifiedReLURobustness).
