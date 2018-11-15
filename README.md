@@ -114,7 +114,4 @@ To enable multithreaded computing, changing the number `1` in `run.sh` to the nu
 NUMBA_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1
 ```
 
-**Update: An alternative version of CROWN: https://github.com/huanzhang12/RecurJac-Jacobian-Bounds**. 
-
-The code in this repository will be not maintained and is intended to reproduce paper results only.
-
+An alternative refactor version of CROWN: https://github.com/huanzhang12/RecurJac-Jacobian-Bounds. 
