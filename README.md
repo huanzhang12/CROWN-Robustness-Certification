@@ -103,6 +103,33 @@ The following result in log file is obtained:
 [L0] model = models/mnist_3layer_tanh_20, avg robustness_gx = 1.42974, numimage = 97, total_time = 14.1968
 ```
 
+Training your own models
+-------------------
+We provide our pre-trained MNIST and CIFAR models that are used in the paper [here](http://jaina.cs.ucdavis.edu/datasets/adv/relu_verification/models_crown.tar). 
+
+To train a new multilayer perceptron (MLP) model, we provide the training script `train_nlayer.py` to train a n-layer MLP with k hidden neurons per layer. For example, n = 4, k = 20, dataset = MNIST, activation = relu, save model name = mnist_4layer_relu_20:
+
+```
+python train_nlayer.py 20 20 20 --model mnist --activation relu --lr LEARNING_RATE --epochs EPOCHS --modelfile mnist_4layer_relu_20
+```
+
+Put your saved model `mnist_4layer_relu_20` in the folder `models`, and run CROWN with random target and L_inf norm on one image:
+
+```
+mkdir models
+mv mnist_4layer_relu_20 models/
+python main.py --model mnist --hidden 20 --numlayer 4  --activation relu --numimage 1 --targettype random --norm i 
+```
+
+For more argument options, please use `--help` to check: 
+```
+python train_nlayer.py --help
+python main.py --help
+```
+
+Our codes can be easily adapted to running CROWN with different number of hidden nodes in each layer and will be updated shortly.
+
+
 Other notes
 -------------------
 
@@ -113,16 +140,5 @@ To enable multithreaded computing, changing the number `1` in `run.sh` to the nu
 NUMBA_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1
 ```
 
-Training your own models
--------------------
-We provide our pre-trained MNIST and CIFAR models that are used in the paper [here](http://jaina.cs.ucdavis.edu/datasets/adv/relu_verification/models_crown.tar). 
-
-To train a new multilayer perceptron (MLP) model, we provide the training script `train_nlayer.py` to train a n-layer MLP with k hidden neurons per layer. For example, n = 4, k = 20, dataset = MNIST, activation = relu, save model name = mnist_4layer_relu_20:
-
-```
-python train_nlayer.py 20 20 20 --model mnist --activation relu --lr LEARNING_RATE --epochs EPOCHS --modelfile mnist_4layer_relu_20
-```
-For more argument options such as setting weight decays, save location path, etc, please use `--help` to check. Our codes can be easily adapted to running CROWN with different number of hidden nodes in each layer. 
-
-[Another option](https://github.com/huanzhang12/RecurJac-Jacobian-Bounds.) for you to evaluate models with different number of hidden nodes in each layer. This implementation contains the same CROWN algorithm (up to floating-point numerical error) with a user-friendly and extensible interface for evaluating customized models.
+[Here](https://github.com/huanzhang12/RecurJac-Jacobian-Bounds.) is another option for you to evaluate models with different number of hidden nodes in each layer. This implementation contains the same CROWN algorithm (up to floating-point numerical error) with a user-friendly and extensible interface for evaluating customized models.
 
