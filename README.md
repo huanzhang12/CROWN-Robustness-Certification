@@ -1,7 +1,4 @@
-**As requested by IBM, this repository is moved to https://github.com/IBM/CROWN-Robustness-Certification, but we aim to keep both repositories synced up.** The code is released under Apache License v2.
-
-Using the code in this repository to reproduce the results in our paper (further mainteinence will be on the IBM repository). For evaluating your own models, it is recommended to use the more flexible implementation of CROWN: https://github.com/huanzhang12/RecurJac-Jacobian-Bounds. This implementation contains the same CROWN algorithm (up to floating-point numerical error) with a user-friendly and extensible interface for evaluating customized models.
-
+**As requested by IBM, this repository is moved to https://github.com/IBM/CROWN-Robustness-Certification, but we aim to keep both repositories synced up.** The code is released under Apache License v2. Using the code in this repository can reproduce the results in our paper (further mainteinence will be on the [IBM repository](https://github.com/IBM/CROWN-Robustness-Certification), if there are any issues or bugs please report and ping us over there).
 
 About
 --------------------
@@ -106,7 +103,6 @@ The following result in log file is obtained:
 [L0] model = models/mnist_3layer_tanh_20, avg robustness_gx = 1.42974, numimage = 97, total_time = 14.1968
 ```
 
-
 Other notes
 -------------------
 
@@ -117,4 +113,5 @@ To enable multithreaded computing, changing the number `1` in `run.sh` to the nu
 NUMBA_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1
 ```
 
-An alternative refactor version of CROWN: https://github.com/huanzhang12/RecurJac-Jacobian-Bounds. 
+We provide our pre-trained MNIST and CIFAR models that are used in the paper [here](http://jaina.cs.ucdavis.edu/datasets/adv/relu_verification/models_crown.tar). To evaluate your own models, [another implementation](https://github.com/huanzhang12/RecurJac-Jacobian-Bounds.) of CROWN might be helpful. This implementation contains the same CROWN algorithm (up to floating-point numerical error) with a user-friendly and extensible interface for evaluating customized models.
+
