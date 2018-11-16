@@ -69,41 +69,8 @@ Usage: ./run.sh model modeltype layer neuron norm solver target --activation ACT
 
 The main interfacing code is `main.py`, which provides additional options. Use `python main.py -h` to explore these options.
 
-Examples
-----------------
 
-For example, to evaluate the Linf robustness of MNIST 3\*[1024] adversarially trained model using CROWN-adaptive on least likely targets, run
-
-```
-./run.sh mnist adv_retrain 3 1024 i adaptive least
-```
-
-A log file will be created in the `logs` folder. The last line of the log (starting with [L0]) will report the average
-robustness lower bounds on 100 MNIST test images. Lines starting with [L1] reports per-image information.
-
-```
- tail logs/mnist/3/mnist_adv_retrain_3_1024_Li_adaptive_least_none_*.log
-```
-
-```
-[L0] model = models/mnist_3layer_relu_1024_adv_retrain, avg robustness_gx = 0.21916, numimage = 96, total_time = 85.4255
-```
-
-The adversarially trained model (with adversarial examples crafted by PGD with eps = 0.3) has a robustness lower bound of 0.21916.
-
-Similarly, to evaluate the L1 robustness of MNIST 3\*[20] model with tanh activation on random targets using CROWN-general, run the following command:
-
-```
-./run.sh mnist vanilla 3 20 1 general random --activation tanh
-```
-
-The following result in log file is obtained:
-
-```
-[L0] model = models/mnist_3layer_tanh_20, avg robustness_gx = 1.42974, numimage = 97, total_time = 14.1968
-```
-
-Training your own models and evaluating your own models with various methods
+Training your own models and evaluating with CROWN and other methods
 -------------------
 0. We provide our pre-trained MNIST and CIFAR models that are used in the paper [here](http://jaina.cs.ucdavis.edu/datasets/adv/relu_verification/models_crown.tar). 
 
@@ -138,18 +105,17 @@ python main.py --model mnist --hidden 20 --numlayer 4 --targettype random --norm
 python main.py --model mnist --hidden 20 --numlayer 4 --targettype random --norm i --numimage 1 --activation relu --method ours --lipsbnd fast
 ```
 
-* If you want to run `Op-norm` (the global lipschitz constant based approach, see [3])
+* If you want to run `Op-norm` (the global lipschitz constant based approach, see [[3]](https://arxiv.org/abs/1312.6199))
 ```
 python main.py --model mnist --hidden 20 --numlayer 4 --targettype random --norm i --numimage 1 --activation relu --method spectral 
 ```
 
-* If you want to run `LP-Full` (the convex outer polytope approach, casted as Linear/Quadratic programming, see Formulation in [18]): 
+* If you want to run `LP-Full`, please install [gurobipy](http://www.gurobi.com/documentation/8.1/quickstart_windows/py_python_interface) in advance (the convex outer polytope approach, casted as Linear/Quadratic programming, see the LP Formulation in [[18]](https://arxiv.org/abs/1711.00851)): 
 ```
 python main.py --model mnist --hidden 20 --numlayer 4 --targettype random --norm i --numimage 1 --activation relu --method LPFULL
 ```
-(please install gurobipy in advance)
 
-* If you want to run `LP` (the convex outer polytope approach. The intermediate bounds are obtained by Fast-Lin and only solve one LP at the last layer.)
+* If you want to run `LP`, please install [gurobipy](http://www.gurobi.com/documentation/8.1/quickstart_windows/py_python_interface) in advance  (the convex outer polytope approach. The intermediate bounds are obtained by Fast-Lin and only solve one LP at the last layer.)
 ```
 python main.py --model mnist --hidden 20 --numlayer 4 --targettype random --norm i --numimage 1 --activation relu --method LP
 ```
@@ -161,6 +127,41 @@ python main.py --help
 ```
 
 Our codes can be easily adapted to running CROWN with different number of hidden nodes in each layer and will be updated shortly.
+
+Additional Examples
+----------------
+
+For example, to evaluate the Linf robustness of MNIST 3\*[1024] adversarially trained model using CROWN-adaptive on least likely targets, run
+
+```
+./run.sh mnist adv_retrain 3 1024 i adaptive least
+```
+
+A log file will be created in the `logs` folder. The last line of the log (starting with [L0]) will report the average
+robustness lower bounds on 100 MNIST test images. Lines starting with [L1] reports per-image information.
+
+```
+ tail logs/mnist/3/mnist_adv_retrain_3_1024_Li_adaptive_least_none_*.log
+```
+
+```
+[L0] model = models/mnist_3layer_relu_1024_adv_retrain, avg robustness_gx = 0.21916, numimage = 96, total_time = 85.4255
+```
+
+The adversarially trained model (with adversarial examples crafted by PGD with eps = 0.3) has a robustness lower bound of 0.21916.
+
+Similarly, to evaluate the L1 robustness of MNIST 3\*[20] model with tanh activation on random targets using CROWN-general, run the following command:
+
+```
+./run.sh mnist vanilla 3 20 1 general random --activation tanh
+```
+
+The following result in log file is obtained:
+
+```
+[L0] model = models/mnist_3layer_tanh_20, avg robustness_gx = 1.42974, numimage = 97, total_time = 14.1968
+```
+
 
 
 Other notes
