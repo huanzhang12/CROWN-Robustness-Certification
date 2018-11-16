@@ -1,7 +1,5 @@
 **As requested by IBM, this repository is moved to https://github.com/IBM/CROWN-Robustness-Certification, but we aim to keep both repositories synced up.** The code is released under Apache License v2.
 
-Using the code in this repository to reproduce the results in our paper (further mainteinence will be on the IBM repository). For evaluating your own models, it is recommended to use the more flexible implementation of CROWN: https://github.com/huanzhang12/RecurJac-Jacobian-Bounds. This implementation contains the same CROWN algorithm (up to floating-point numerical error) with a user-friendly and extensible interface for evaluating customized models.
-
 
 About
 --------------------
@@ -117,4 +115,4 @@ To enable multithreaded computing, changing the number `1` in `run.sh` to the nu
 NUMBA_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1
 ```
 
-An alternative refactor version of CROWN: https://github.com/huanzhang12/RecurJac-Jacobian-Bounds. 
+An alternative refactor version of CROWN: https://github.com/huanzhang12/RecurJac-Jacobian-Bounds. This implementation contains the same CROWN algorithm (up to floating-point numerical error) with a user-friendly and extensible interface for evaluating customized models.
