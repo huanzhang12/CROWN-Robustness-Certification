@@ -1,19 +1,20 @@
 **As requested by IBM, this repository is moved to https://github.com/IBM/CROWN-Robustness-Certification, but we aim to keep both repositories synced up.** The code is released under Apache License v2.
 
-
-About
+CROWN: A Neural Network Verification Framework
 --------------------
-We proposed an new framework, **CROWN**, to **certify** robustness of neural networks with **general activation functions** including but not limited to ReLU, tanh, sigmoid, arctan, etc. **CROWN** is efficient and can deliver lower bounds of minimum adversarial distortions with guarantees (the so-called **certified lower bound** or **certified robustness**). **CROWN** also improves the quality (up to 28%) of robustness lower bound on ReLU networks comparing to existing state-of-the-art robustness certification algorithms e.g. [Fast-Lin](https://github.com/huanzhang12/CertifiedReLURobustness).
+We proposed a new framework, **CROWN**, to **certify** robustness of neural networks with **general activation functions** including but not limited to ReLU, tanh, sigmoid, arctan, etc. **CROWN** is efficient and can deliver lower bounds of minimum adversarial distortions with guarantees (the so-called **certified lower bound** or **certified robustness**).
 
-Cite this work:
+We compare **CROWN** with various certified lower bounds methods including [Global Lipschitz constant](https://arxiv.org/pdf/1312.6199.pdf) and [Fast-Lin](https://github.com/huanzhang12/CertifiedReLURobustness) and show that **CROWN** can certify much large lower bound than the Global Lipschitz constant based approach while improve the quality (up to 28%) of robustness lower bound on ReLU networks of state-of-the-art robustness certification algorithms Fast-Lin. We also compare **CROWN** with robustness score estimate [CLEVER](https://github.com/huanzhang12/CLEVER) and adversarial attack methods ([CW](https://github.com/carlini/nn_robust_attacks),[EAD](https://github.com/ysharma1126/EAD_Attack)). Please See Section 4 and Appendix E of our paper for more details.  
 
-Huan Zhang\*, Tsui-Wei Weng\*, Pin-Yu Chen, Cho-Jui Hsieh and Luca Daniel, "[**Efficient Neural Network Robustness Certification with General Activation Functions**](http://arxiv.org/abs/1811.00866)", NIPS 2018. (\* Equal Contribution)
+Cite our work:
+
+Huan Zhang\*, Tsui-Wei Weng\*, Pin-Yu Chen, Cho-Jui Hsieh and Luca Daniel, "[**Efficient Neural Network Robustness Certification with General Activation Functions**](http://arxiv.org/abs/1811.00866)", NuerIPS 2018. (\* Equal Contribution)
 
 ```
 @inproceedings{zhang2018crown,
   author = "Huan Zhang AND Tsui-Wei Weng AND Pin-Yu Chen AND Cho-Jui Hsieh AND Luca Daniel",
   title = "Efficient Neural Network Robustness Certification with General Activation Functions",
-  booktitle = "Advances in Neural Information Processing Systems (NIPS)",
+  booktitle = "Advances in Neural Information Processing Systems (NuerIPS)",
   year = "2018",
   month = "dec"
 }
@@ -114,5 +115,4 @@ To enable multithreaded computing, changing the number `1` in `run.sh` to the nu
 ```
 NUMBA_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1
 ```
-
-An alternative refactor version of CROWN: https://github.com/huanzhang12/RecurJac-Jacobian-Bounds. This implementation contains the same CROWN algorithm (up to floating-point numerical error) with a user-friendly and extensible interface for evaluating customized models.
+The code in this repository is released under Apache-2.0 License and is intended to reproduce paper results only (see LICENSE for more details).
